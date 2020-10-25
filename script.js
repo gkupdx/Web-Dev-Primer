@@ -42,7 +42,6 @@ function deleteList() {
 // 'Save'
 function saveList() {
   var array = [];
-  var itemList = toDoList.children;
 
   for (var i = 0; i < toDoList.children.length; ++i) {
     var itemList = toDoList.children.item(i);
@@ -50,7 +49,7 @@ function saveList() {
     // Javascript object
     var tasks = {
       "task": itemList.innerText,
-      "completed": itemList.classList.contains("completed");
+      "completed": itemList.classList.contains("completed")
     };
 
     array.push(tasks);
