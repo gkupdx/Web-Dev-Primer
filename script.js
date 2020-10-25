@@ -39,13 +39,22 @@ function saveList() {
 // Adds a new to-do item to list
 function newToDoItem(itemDesc, completed) {
   var toDoItem = document.createElement("li"); //create a new "li" element to use in place of <li>
-  var toDoText = document.createTextNode(itemDesc); //create a new Text Node container & store the contents of itemDesc in it
+  var toDoText = document.createTextNode(itemDesc); //create a new TextNode container & store the contents of itemDesc in it
   toDoItem.appendChild(toDoText); //add the toDoText Text Node as a list item <li>
 
   if (completed) { // if completed is TRUE, adds a class called "completed" to this list item which changes its appearance
     toDoItem.classList.add("completed");
   }
 
-  toDolist.appendChild(toDoItem); //add the toDoItem list to the ordered list <ol>
-  toDoItem.addEventListener("dblclick", toggleToDoItemState); //upon double-click, the <li> calls the function
+  toDoList.appendChild(toDoItem); //add the toDoItem list to the ordered list <ol>
+  toDoItem.addEventListener("dblclick", toggleItemState); //upon double-click, the <li> calls the function
+}
+
+// Toggles current item between 'completed' and 'not completed'
+function toggleItemState() {
+  if (this.classList.contains("completed")) { //if current item is 'completed', toggle to other state
+    this.classList.remove("completed");
+  } else { //current item is not completed, toggle to 'completed'
+    this.classList.add("completed");
+  }
 }
