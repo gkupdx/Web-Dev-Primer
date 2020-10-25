@@ -23,7 +23,7 @@ function addToDoItem() {
 
 // 'Clear'
 function clearCompleted() {
-  var completedItems = toDoList.getElementsbyClassName("completed"); //set 'completedItem' to all IDs labeled with class name "completed"
+  var completedItems = toDoList.getElementsByClassName("completed"); //set 'completedItem' to all IDs labeled with class name "completed"
 
   while (completedItems.length > 0) { //while there are still items in the completed list
     completedItems.item(0).remove(); //remove from the 1st position of list
@@ -41,7 +41,22 @@ function deleteList() {
 
 // 'Save'
 function saveList() {
-  alert("List saved!");
+  var array = [];
+  var itemList = toDoList.children;
+
+  for (var i = 0; i < toDoList.children.length; ++i) {
+    var itemList = toDoList.children.item(i);
+
+    // Javascript object
+    var tasks = {
+      "task": itemList.innerText,
+      "completed": itemList.classList.contains("completed");
+    };
+
+    array.push(tasks);
+  }
+
+  localStorage.setItem("todos", JSON.stringify(tasks)); //saves list to local storage via JSON stringify
 }
 
 // Adds a new to-do item to list
