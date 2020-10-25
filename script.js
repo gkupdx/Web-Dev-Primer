@@ -23,12 +23,20 @@ function addToDoItem() {
 
 // 'Clear'
 function clearCompleted() {
-  alert("Cleared all completed items from list!");
+  var completedItems = toDoList.getElementsbyClassName("completed"); //set 'completedItem' to all IDs labeled with class name "completed"
+
+  while (completedItems.length > 0) { //while there are still items in the completed list
+    completedItems.item(0).remove(); //remove from the 1st position of list
+  }
 }
 
 // 'Delete'
 function deleteList() {
-  alert("All items in list have been deleted.");
+  var itemList = toDoList.children; //set 'itemList' to the items in the <ol>
+
+  while (itemList.length > 0) { //while there are still items in the <ol>
+    itemList.item(0).remove(); //remove from the 1st position of list
+  }
 }
 
 // 'Save'
