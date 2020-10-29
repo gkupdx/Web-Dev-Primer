@@ -15,6 +15,14 @@ var textBox = document.getElementById("todo-entry-box");
   // Todo list
 var toDoList = document.getElementById("todo-list");
 
+  // 'Cake Recipe' button - send the user to the sweetscroll.html
+var cakeRecipe = document.getElementById("cake-recipe");
+cakeRecipe.addEventListener("click", sendToRecipe);
+
+function sendToRecipe() {
+  location.href = "sweetscroll.html"
+}
+
 // 'Add'
 function addToDoItem() {
   var itemDesc = textBox.value; //store the text box value into itemDesc
